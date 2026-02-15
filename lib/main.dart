@@ -1,10 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 import 'package:threadup/Core/Theme/pallete.dart';
-import 'package:threadup/features/auth/screens/login_screen.dart';
+import 'package:threadup/routes/router.dart';
 import 'firebase_options.dart';
 void main() async {
   debugPrint("Firebase Initialing...");
@@ -24,13 +23,14 @@ class MyApp extends ConsumerStatefulWidget {
 class _MyAppState extends ConsumerState<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: Pallete.lightModeAppTheme,
       darkTheme: Pallete.darkModeAppTheme,
       themeMode: ThemeMode.system,
       title: "ThreadUP",
-      home: const LoginScreen(),
+      routerDelegate: RoutemasterDelegate(routesBuilder: (context) => loggedOutRoute),
+      routeInformationParser: const RoutemasterParser(),
     );
   }
 }
