@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "153738262076",
+    "project_id": "threadup-ae501",
+    "storage_bucket": "threadup-ae501.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153738262076:android:4cf8748c027aac7e78b539",
+        "android_client_info": {
+          "package_name": "com.example.threadup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153738262076-uu631n2m0trphgaa37o9p93pkceflrfn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.threadup",
+            "certificate_hash": "86b1f6f4c7e8e25bfbac0ab23ef3e790e1247a47"
+          }
+        },
+        {
+          "client_id": "153738262076-aehl0i2mb1k2klik2ij7vav7ra4ue7vu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy2YSQaQ0sVTk0xs6cKaaZnpQp1qd5e5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153738262076-aehl0i2mb1k2klik2ij7vav7ra4ue7vu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "153738262076-n17r10dcuf4giq2kr57bv2iiq4rjq935.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.threadup"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
