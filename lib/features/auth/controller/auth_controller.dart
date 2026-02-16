@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:threadup/Core/utile.dart';
@@ -6,6 +7,9 @@ import 'package:threadup/features/models/user_model.dart';
 
 final authControllerProvider = StateNotifierProvider<AuthController, bool>((ref)=>AuthController(authRepository: ref.watch(authRepositoryProvider), ref: ref));
 final userProvider = StateProvider<UserModel?>((ref) => null);
+final authStateChangeProvider = StreamProvider((ref) => ref.watch(authControllerProvider.notifier).authStateChange);
+final getUserDataProvider = StreamProvider.family((ref, String uid) => ref.watch(authControllerProvider.notifier).getUserData(uid));
+
 
 class AuthController extends StateNotifier<bool> {
   final AuthRepository _authRepository;
@@ -15,6 +19,12 @@ class AuthController extends StateNotifier<bool> {
       : _authRepository = authRepository,
         _ref = ref,
         super(false);
+
+  Stream<User?> get authStateChange => _authRepository.authStateChange;
+
+    Stream<UserModel>getUserData(String uid){
+      return _authRepository.getUserData(uid);
+    }
 
   
   void signInWithGoogle(BuildContext context) async {

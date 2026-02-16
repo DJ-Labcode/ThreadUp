@@ -20,6 +20,11 @@ class AuthRepository {
 
   bool _initialized = false;
   CollectionReference get _user =>  _firestore.collection(FirebaseConstants.usersCollection);
+  Stream<User?> get authStateChange => _auth.authStateChanges();
+
+  Stream<UserModel>getUserData(String uid){
+    return _user.doc(uid).snapshots().map((event) => UserModel.fromMap(event.data() as Map<String, dynamic>));
+  }
 
 
   AuthRepository({
@@ -92,10 +97,7 @@ class AuthRepository {
       return left(Failure(e.toString()));
     }
   }
-
-  Stream<UserModel>getUserData(String uid){
-    return _user.doc(uid).snapshots().map((event) => UserModel.fromMap(event.data() as Map<String, dynamic>));
-  }
+  
 
 
 
